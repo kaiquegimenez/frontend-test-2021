@@ -1,0 +1,10 @@
+.application {
+  display: flex;
+  flex-direction: row;
+
+  &__aside {
+    width: 20%;
+    background-color: #edf9f2;
+    border-right: 1px solid gray;
+  }
+}

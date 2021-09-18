@@ -1,7 +1,21 @@
-<hr />
-<p>Aqui é o topo do menu!</p>
-<p>Menu minimizado? {{ minimize }}</p>
-<span class="material-icons" (click)="handleClick()">menu</span>
-{{ user?.name }}
-{{ user?.role }}
-<hr />
+<!-- <p>Aqui é o topo do menu!</p>
+<p>Menu minimizado? {{ minimize }}</p> -->
+<div class="container">
+  <div class="logo">
+    <span class="material-icons logo__icon" (click)="handleClick()">menu</span>
+    <img class="logo__image" src="../../../assets/images/logo.png" alt="" width="150px" height="15px">
+  </div>
+  <div class="user">
+    <div class="user__icon-name">
+      <span>JP</span>
+    </div>
+    <div class="user__infos-user">
+      <span class="user__text-name"> {{ user?.name }} </span>
+      <span class="user__text-role"> {{ user?.role }} </span>
+    </div>
+  </div>
+  <div class="add-list">
+    <img src="../../../assets/images/check.png" width="40px" height="40px" alt="">
+    <span>ADICIONAR LISTA</span>
+  </div>
+</div>
