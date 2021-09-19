@@ -2,14 +2,14 @@
   margin: 10px;
   display: flex;
   flex-direction: column;
+  height: 22vh;
 }
 
 .logo {
   display: flex;
   align-items: center;
   &__image {
-    width: 75%;
-    height: 10%;
+    height: 20px;
   }
 
   &__icon {

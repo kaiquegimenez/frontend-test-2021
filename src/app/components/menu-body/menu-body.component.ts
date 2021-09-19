@@ -3,6 +3,8 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   Input,
+  ViewChild,
+  ElementRef,
 } from '@angular/core';
 
 export interface MenuLink {
@@ -11,6 +13,7 @@ export interface MenuLink {
   isActive: boolean; // indica se o link está ativo no momento.
   isEnabled: boolean; // indica se o link está disponível - alguns planos de contrato não têm todos os links.
   isVisible: boolean; // indica se o link deve ser mostrado - algumas funcionalidades são habilitadas no futuro.
+  isExpanded: boolean;
   parentId: number | null; // id
   text: string;
   children: MenuLink[];
@@ -25,11 +28,13 @@ export interface MenuLink {
 export class MenuBodyComponent implements OnInit {
   @Input() minimize = false;
   @Input() links: MenuLink[] = [];
+  @ViewChild('childrenOptions') childrenOptions: HTMLElement | any;
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.links[0].children?.length > 0)
-    console.log(this.links);
+  ngOnInit(): void {}
+
+  dropOptions(index: any) {
+    this.links[index].isExpanded = !this.links[index].isExpanded;
   }
 }
