@@ -1,0 +1,83 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 65vh;
+}
+
+.menu-options {
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
+  color: #616461;
+  height: 50px;
+  margin-left: 10px;
+
+  &-show {
+    background-color: #dde8e2;
+  }
+
+  &__icons {
+    color: #15b35a;
+    width: 50px;
+  }
+
+  &-disabled {
+    color: #939a96;
+    position: relative;
+  }
+}
+
+.active {
+  background-color: #c1e8cc;
+}
+
+
+.child-options {
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+  font-family: sans-serif;
+  margin-right: 10px;
+  max-height: 0px;
+  height: 0px;
+  visibility: hidden;
+  opacity: 0;
+
+  &-show {
+    margin-top: 10px;
+    height: auto;
+    max-height: 600px;
+    visibility: visible;
+    opacity: 1;
+    transition: max-height 2s ease-out, opacity 2s, visibility 2s;
+  }
+
+  &__text {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    &-disabled {
+      color: #939a96;
+      position: relative;
+    }
+  }
+
+}
+
+
+.rotate-arrow-up {
+  transform: rotate(-180deg);
+}
+
+.arrow-down {
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.icon-padlock {
+  position: absolute;
+  right: 10px;
+}

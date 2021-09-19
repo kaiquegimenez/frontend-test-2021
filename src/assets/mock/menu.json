@@ -32,7 +32,7 @@
         "text": "Página inicial"
       },
       {
-        "isEnabled": true,
+        "isEnabled": false,
         "icon": "check",
         "id": 2,
         "parentId": null,
@@ -40,7 +40,7 @@
         "isVisible": true
       },
       {
-        "isEnabled": true,
+        "isEnabled": false,
         "icon": "watch_later",
         "id": 3,
         "parentId": null,

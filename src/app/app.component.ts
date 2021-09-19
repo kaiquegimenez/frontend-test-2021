@@ -29,7 +29,19 @@ export class AppComponent implements OnInit {
 
   private handleMenuLinks(data: any): MenuLink[] {
     data.menu.links[0].isActive = true;
-    return data.menu.links;
+    let links = data.menu.links;
+    for(let i =0; i < links.length; i++) {
+      links[i].children = [];
+      if(!links[i].parentId) {
+        links[i].isExpanded = false;
+        for(let x=0; x < links.length; x++) {
+          if(links[x].parentId === links[i].id) {
+            links[i].children?.push(links[x]);
+          }
+        }
+      }
+    }
+    return links;
   }
 
   private handleUser(data: any): User {
