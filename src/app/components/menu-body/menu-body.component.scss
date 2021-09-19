@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.menu-options {
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
+  color: #616461;
+  height: 50px;
+  margin-left: 10px;
+
+  &__icons {
+    color: #15b35a;
+    width: 50px;
+  }
+
+  &-disabled {
+    color: #939a96;
+    position: relative;
+  }
+}
+
+.active {
+  background-color: #c1e8cc;
+}
+
+
+.child-options {
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+  font-family: sans-serif;
+  margin-right: 10px;
+
+  &__text {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    &-disabled {
+      color: #939a96;
+      position: relative;
+    }
+  }
+
+}
+.icon-padlock {
+  position: absolute;
+  right: 10px;
+}

@@ -1,15 +1,27 @@
 <hr />
-<p>Aqui é a lista de links!</p>
-<p>Menu minimizado? {{ minimize }}</p>
+<!-- <p>Aqui é a lista de links!</p>
+<p>Menu minimizado? {{ minimize }}</p> -->
 
 <!-- laço com os links recebidos -->
 <div *ngFor="let link of links">
-  <span *ngIf="link.icon" class="material-icons">{{ link.icon }}</span>
-
-  {{ link.text }}{{ link.isActive ? " - Ativo" : "" }}
-
-  <div *ngFor="let child of link.children">
-    {{ link.text }}
+  <div [class]="link.isActive ? 'active' : ''">
+    <div [class]="!link.isEnabled ? 'menu-options-disabled' : ''" class="menu-options" *ngIf="link.icon && link.isVisible" >
+      <span class="material-icons menu-options__icons">{{ link.icon }}</span>
+      <span>{{ link.text }}</span>
+      <span *ngIf="!link.isEnabled" class="material-icons icon-padlock"> https </span>
+      <span *ngIf="link.children.length > 0" class="material-icons">
+        arrow_drop_down
+      </span>
+    </div>
+  </div>
+  
+  <div class="child-options" *ngIf="link.children">
+    <div *ngFor="let child of link.children">
+      <div [class]="!child.isEnabled ? 'child-options__text-disabled' : ''" class="child-options__text"  *ngIf="child.isVisible">
+        <span>{{ child.text }}</span>
+        <span *ngIf="!child.isEnabled" class="material-icons icon-padlock"> https </span>
+      </div>
+    </div>
   </div>
 </div>
 <!-- laço com os links recebidos end -->

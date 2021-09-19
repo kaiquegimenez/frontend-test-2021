@@ -13,7 +13,7 @@ export interface MenuLink {
   isVisible: boolean; // indica se o link deve ser mostrado - algumas funcionalidades são habilitadas no futuro.
   parentId: number | null; // id
   text: string;
-  children: MenuLink[] | null;
+  children: MenuLink[];
 }
 
 @Component({
@@ -28,5 +28,8 @@ export class MenuBodyComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.links[0].children?.length > 0)
+    console.log(this.links);
+  }
 }
