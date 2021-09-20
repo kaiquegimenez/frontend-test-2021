@@ -18,5 +18,7 @@
 
   &__main {
     width: calc(100% - 275px);
+    transition: width .5s;
+    height: 100vh;
   }
 }

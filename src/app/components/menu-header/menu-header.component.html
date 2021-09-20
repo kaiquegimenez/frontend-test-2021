@@ -1,9 +1,9 @@
 <!-- <p>Aqui é o topo do menu!</p>
 <p>Menu minimizado? {{ minimize }}</p> -->
 <div class="container">
-  <div class="logo">
-    <span class="material-icons logo__icon" (click)="handleClick()">menu</span>
-    <img *ngIf="!minimize" class="logo__image" src="../../../assets/images/logo.png" alt="" width="150px" height="15px">
+  <div class="container__logo">
+    <span class="material-icons container__icon" (click)="handleClick()">menu</span>
+    <img *ngIf="!minimize" class="container__image" src="../../../assets/images/logo.png" alt="" width="150px" height="15px">
   </div>
   <div class="user">
     <div class="user__icon-name">
@@ -14,7 +14,7 @@
       <span class="user__text-role"> {{ user?.role }} </span>
     </div>
   </div>
-  <div [class]="minimize ? 'add-list-minimize' : ''" class="add-list">
+  <div class="add-list" [class]="minimize ? 'add-list--minimize' : ''">
     <img src="../../../assets/images/check.png" width="40px" height="32px" alt="">
     <span *ngIf="!minimize">ADICIONAR LISTA</span>
   </div>

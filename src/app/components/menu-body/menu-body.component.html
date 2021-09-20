@@ -1,23 +1,20 @@
 <hr />
-<div [class]="minimize ? 'container-minimize' : ''" class="container">
-  <!-- <p>Aqui é a lista de links!</p>
-  <p>Menu minimizado? {{ minimize }}</p> -->
-  
+<div [class]="minimize ? 'container-minimize' : ''" class="container">  
   <!-- laço com os links recebidos -->
   <div *ngFor="let link of links; let i = index">
-    <div [ngClass]="{'active' : link.isActive, 'menu-options-show': link.isExpanded}">
-      <div [ngClass]="{'menu-options-disabled' : !link.isEnabled}" class="menu-options" *ngIf="link.icon && link.isVisible" >
-        <span class="material-icons menu-options__icons">{{ link.icon }}</span>
+    <div [ngClass]="{'option-active' : link.isActive, 'menu-options--show': link.isExpanded}">
+      <div *ngIf="link.icon && link.isVisible" [class]="!link.isEnabled ? 'menu-options--disabled' : ''" class="menu-options">
+        <span [class]="!link.isEnabled ? 'menu-options__icons--disabled' : ''" class="material-icons menu-options__icons">{{ link.icon }}</span>
         <span *ngIf="!minimize">{{ link.text }}</span>
         <span *ngIf="!link.isEnabled && !minimize" class="material-icons icon-padlock"> https </span>
-        <span (click)="dropOptions(i)" [class.rotate-arrow-up]="link.isExpanded" *ngIf="link.children.length > 0 && !minimize" class="material-icons arrow-down">
+        <span *ngIf="link.children.length > 0 && !minimize" (click)="dropOptions(i)" [class]="link.isExpanded ? 'rotate-arrow-up' : ''" class="material-icons arrow-down">
           arrow_drop_down
         </span>
       </div>
     </div>
     
-      <div class="child-options" [ngClass]="link.children && link.isExpanded ? 'child-options-show' : ''" *ngFor="let child of link.children">
-        <div [ngClass]="{'child-options__text-disabled' : !child.isEnabled}" class="child-options__text"  *ngIf="child.isVisible">
+      <div class="child-options" [class]="link.children && link.isExpanded && !minimize ? 'child-options--show' : ''" *ngFor="let child of link.children">
+        <div *ngIf="child.isVisible" [class]="!child.isEnabled ? 'child-options--disabled' : ''" class="child-options__text">
           <span>{{ child.text }}</span>
           <span *ngIf="!child.isEnabled" class="material-icons icon-padlock"> https </span>
         </div>
