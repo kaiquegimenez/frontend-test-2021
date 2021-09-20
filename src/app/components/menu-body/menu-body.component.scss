@@ -1,8 +1,12 @@
 .container {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  height: 65vh;
+  overflow-y: overlay;
+  height: 67vh;
+
+  &-minimize {
+    overflow: hidden;
+  }
 }
 
 .menu-options {

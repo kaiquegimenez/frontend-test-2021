@@ -1,7 +1,7 @@
 <!-- app-content -->
 <div class="application" [class.application--menu-minimized]="menuMinimized">
   <!-- painel lateral -->
-  <div class="application__aside">
+  <div [ngClass]="{ 'application__aside-hide': menuMinimized}" class="application__aside">
     <ft-menu-header
       [user]="user"
       [minimize]="menuMinimized"

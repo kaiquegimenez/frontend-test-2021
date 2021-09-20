@@ -30,18 +30,26 @@ export class AppComponent implements OnInit {
   private handleMenuLinks(data: any): MenuLink[] {
     data.menu.links[0].isActive = true;
     let links = data.menu.links;
-    for(let i =0; i < links.length; i++) {
-      links[i].children = [];
-      if(!links[i].parentId) {
-        links[i].isExpanded = false;
-        for(let x=0; x < links.length; x++) {
-          if(links[x].parentId === links[i].id) {
-            links[i].children?.push(links[x]);
+    const children = links.filter(this.validChildren);
+    let parents = links.filter(this.validParents);
+    parents.forEach((parent: MenuLink) => {
+      parent.children = []
+      if(!parent.parentId) {
+        children.forEach((child: MenuLink) => {
+          if(parent.id === child.parentId) {
+            parent.children.push(child);
           }
-        }
+        });
       }
-    }
-    return links;
+    });
+    return parents;
+  }
+
+  private validChildren(links: MenuLink) {
+    return links.parentId !== null;
+  }
+  private validParents(links: MenuLink) {
+    return links.parentId === null;
   }
 
   private handleUser(data: any): User {
