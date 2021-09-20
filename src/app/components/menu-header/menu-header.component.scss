@@ -3,11 +3,10 @@
   display: flex;
   flex-direction: column;
   height: 20vh;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
   &__image {
     height: 20px;
   }
@@ -15,8 +14,10 @@
   &__icon {
     width: 20%;
     cursor: pointer;
+    user-select: none;
   }
 }
+
 
 .user {
   margin-top: 10px;
@@ -66,12 +67,12 @@
   font-weight: bold;
   font-family: sans-serif;
   font-size: 14px;
-  transition: all 0.3s ease-in-out;
+  // transition: all 0.3s ease-in-out;
 
-  &-minimize {
+  &--minimize {
     border-radius: 50%;
     height: 30px;
     width: 27px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-out;
   }
 }

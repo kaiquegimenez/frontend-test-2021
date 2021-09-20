@@ -9,6 +9,10 @@
   }
 }
 
+.option-active {
+  background-color: #c1e8cc;
+}
+
 .menu-options {
   display: flex;
   align-items: center;
@@ -17,25 +21,40 @@
   height: 50px;
   margin-left: 10px;
 
-  &-show {
+  &--show {
     background-color: #dde8e2;
   }
 
   &__icons {
     color: #15b35a;
     width: 50px;
+    user-select: none;
+    &--disabled {
+      color: #939a96;
+    }
   }
 
-  &-disabled {
+  &--disabled {
     color: #939a96;
     position: relative;
   }
 }
 
-.active {
-  background-color: #c1e8cc;
+.icon-padlock {
+  position: absolute;
+  right: 10px;
+  user-select: none;
 }
 
+.rotate-arrow-up {
+  transform: rotate(-180deg);
+}
+
+.arrow-down {
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+}
 
 .child-options {
   display: flex;
@@ -47,8 +66,9 @@
   height: 0px;
   visibility: hidden;
   opacity: 0;
+  
 
-  &-show {
+  &--show {
     margin-top: 10px;
     height: auto;
     max-height: 600px;
@@ -62,26 +82,11 @@
     display: flex;
     align-items: center;
 
-    &-disabled {
-      color: #939a96;
-      position: relative;
-    }
+  }
+  &--disabled {
+    color: #939a96;
+    position: relative;
   }
 
 }
 
-
-.rotate-arrow-up {
-  transform: rotate(-180deg);
-}
-
-.arrow-down {
-  transition: .3s;
-  cursor: pointer;
-  user-select: none;
-}
-
-.icon-padlock {
-  position: absolute;
-  right: 10px;
-}

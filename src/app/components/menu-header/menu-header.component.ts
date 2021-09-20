@@ -28,10 +28,10 @@ export class MenuHeaderComponent {
 
   shortName(name: any) {
     const arrayName = name?.split(' ');
-    let shortName = ''
-    for(let i = 0; i < arrayName?.length; i++) {
-      shortName += arrayName[i][0];
-    }
+    let shortName = '';
+    arrayName?.forEach((name: string) => {
+      shortName += name[0]
+    });
     return shortName;
   }
 }
