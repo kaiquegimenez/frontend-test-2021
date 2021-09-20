@@ -3,9 +3,20 @@
   flex-direction: row;
 
   &__aside {
-    width: 275px;
+    width: 100%;
+    max-width: 275px;
     height: 100vh;
     background-color: #edf9f2;
     border-right: 1px solid gray;
+    overflow: hidden;
+    transition: max-width .5s;
+  }
+
+  &__aside-hide {
+    max-width: 50px;
+  }
+
+  &__main {
+    width: calc(100% - 275px);
   }
 }

@@ -1,9 +1,12 @@
-<!-- <p>Aqui é o rodapé do menu</p>
-<p>Menu minimizado? {{ minimize }}</p> -->
-<div class="align-icons-footer">
+<div class="align-icons-footer" [class]="minimize ? 'align-icons-footer-minimize' : ''">
   <div *ngFor="let button of buttons">
-    <span class="material-icons">
+    <span *ngIf="!minimize; else notMinimize" class="material-icons">
       {{ button.icon }}
     </span>
+    <ng-template #notMinimize>
+      <span *ngIf="button.icon === 'help_outline'" class="material-icons">
+        {{ button.icon }}
+      </span>
+    </ng-template>
   </div>
 </div>

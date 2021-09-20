@@ -1,5 +1,5 @@
 <hr />
-<div class="container">
+<div [class]="minimize ? 'container-minimize' : ''" class="container">
   <!-- <p>Aqui é a lista de links!</p>
   <p>Menu minimizado? {{ minimize }}</p> -->
   
@@ -8,22 +8,20 @@
     <div [ngClass]="{'active' : link.isActive, 'menu-options-show': link.isExpanded}">
       <div [ngClass]="{'menu-options-disabled' : !link.isEnabled}" class="menu-options" *ngIf="link.icon && link.isVisible" >
         <span class="material-icons menu-options__icons">{{ link.icon }}</span>
-        <span>{{ link.text }}</span>
-        <span *ngIf="!link.isEnabled" class="material-icons icon-padlock"> https </span>
-        <span (click)="dropOptions(i)" [class.rotate-arrow-up]="link.isExpanded" *ngIf="link.children.length > 0" class="material-icons arrow-down">
+        <span *ngIf="!minimize">{{ link.text }}</span>
+        <span *ngIf="!link.isEnabled && !minimize" class="material-icons icon-padlock"> https </span>
+        <span (click)="dropOptions(i)" [class.rotate-arrow-up]="link.isExpanded" *ngIf="link.children.length > 0 && !minimize" class="material-icons arrow-down">
           arrow_drop_down
         </span>
       </div>
     </div>
     
-    <div class="child-options" [ngClass]="link.children && link.isExpanded ? 'child-options-show' : ''">
-      <div *ngFor="let child of link.children">
+      <div class="child-options" [ngClass]="link.children && link.isExpanded ? 'child-options-show' : ''" *ngFor="let child of link.children">
         <div [ngClass]="{'child-options__text-disabled' : !child.isEnabled}" class="child-options__text"  *ngIf="child.isVisible">
           <span>{{ child.text }}</span>
           <span *ngIf="!child.isEnabled" class="material-icons icon-padlock"> https </span>
         </div>
       </div>
-    </div>
   </div>
   <!-- laço com os links recebidos end -->
 </div>
